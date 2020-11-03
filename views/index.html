@@ -1,9 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-    </body>
+
+<head>
+    <title>Page title shown in window title</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Välkommen till BurgerOnline</h1>
+    </main>
+
+    <section>
+        <!-- Content for selecting burger -->
+
+        <h2>Select burger</h2>
+        <p>This is where you execute burger selection</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Burger 1</td>
+                    <td>Burger 2</td>
+                    <td>Burger 3</td>
+                </tr>
+                <tr>
+                    <td><img src="https://jollibeeusa.com/wp-content/uploads/2019/03/yum-1.png" alt="Img not found"
+                            title="Another in-line element" width="100" /></td>
+                    <td><img src="https://pngimage.net/wp-content/uploads/2018/05/burger-patty-png-2.png"
+                            alt="Img not found" title="Another in-line element" width="100" /></td>
+                    <td><img src="https://www.pngarts.com/files/3/KFC-Burger-Transparent.png"
+                            alt="Img not found" title="Another in-line element" width="100" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Bröd</li>
+                            <li>Biff</li>
+                            <li>Bröd</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Biff</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Grönsaker</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <!-- Content for entering customer info -->
+        <h2>Customer infromation</h2>
+        <p>this is where you provide necessary information</p>
+        <h3>Delivery information:</h3>
+
+        <div>
+            <label for="firstname">Full name</label>
+            <input type="text" placeholder="First- and last name">
+        </div>
+        <div>
+            <label for="firstname">E-mail</label>
+            <input type="text" placeholder="E-mail address">
+        </div>
+        <div>
+            <label for="firstname">Street</label>
+            <input type="text" placeholder="Street name">
+        </div>
+        <div>
+            <label for="firstname">House</label>
+            <input type="text" placeholder="House number">
+        </div>
+
+        <label for="payment">Payment options</label>
+        <select id="payment" name="options">
+            <option>Credit card</option>
+            <option>Debit card</option>
+            <option>Faktura</option>
+            <option>Kontant</option>
+        </select>
+
+        <label for="gender">Gender</label>
+        <p>Please select your gender:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+
+
+        <div>
+            <input type="submit" value="Send">
+        </div>
+    </section>
+
+
+    <footer>
+        <hr>
+        <p>All rights reserved</p>
+    </footer>
+</body>
+
 </html>
