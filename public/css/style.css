@@ -1,4 +1,71 @@
-body{
+body {
     font-family: 'Roboto', sans-serif;
     font-size: 14pt;
+    margin: 0;
+}
+
+#landing_section {
+    text-align: center;
+}
+
+#landing_section h1{
+position: absolute;
+left:35%;
+top:10%;}
+
+
+.index_banner__image {
+    width: 100%;
+    height: auto;
+    opacity: .8;
+
+}
+
+#index_burger__section {
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+#index_customer__section {
+    border: 2px dashed black;
+}
+
+#index_customer__section,
+#index_burger__section {
+    margin: 50px 0px;
+    padding: 20px 20px;
+}
+
+.wrapper{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 200px 200px 200px;
+    justify-content: center;
+}
+.box{
+    align-self: center;
+}
+
+.index_burger__table {
+    width: 100%;
+}
+
+.index_burger__table ul {
+    width: fit-content;
+    margin-left: 55px;
+}
+
+.text-bold {
+    font-weight: bolder;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: blue;
+    cursor: pointer;
+    color: white;
 }
