@@ -37,11 +37,15 @@ top:10%;}
     padding: 20px 20px;
 }
 
-.wrapper{
+#wrapper{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 200px 200px 200px;
     justify-content: center;
+    color: white;
+}
+#wrapper img{
+    width: 150px;
 }
 .box{
     align-self: center;
