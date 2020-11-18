@@ -8,12 +8,20 @@
 
 
 function getOrderData(){
-  return [
-     document.getElementById('form_name').value,
-     document.getElementById('form_email').value,
-     document.getElementById('form_payment').value,
-     document.querySelector('input[name="gender"]:checked').value,
-  ]
+    let orderData = []
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const options = document.querySelectorAll('input[name="burgerCheckbox"]:checked');
+
+    orderData.push(document.getElementById('form_name').value);
+    orderData.push(document.getElementById('form_email').value);
+    orderData.push(document.getElementById('form_payment').value);
+    gender != null ? orderData.push(gender.value) : null;
+
+    for (i in options){
+        options[i].value != undefined ? orderData.push(options[i].value) : null;
+    }
+
+  return orderData;
 }
 
 function MenuItems(food) {
