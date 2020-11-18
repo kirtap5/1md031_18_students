@@ -27,17 +27,18 @@
         <h2>Select burger</h2>
         <p>This is where you execute burger selection</p>
         <div id="wrapper">
-           <!-- <div class="card">
-            <h1></h1>
-            <img src="" alt="">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-           </div> -->
+            <div v-for="burger in burgers" class="box">
+                <h1>{{ burger.name }}</h1>
+                <img v-bind:src="burger.img" alt="Image not found">
+                <ul>
+                    <li>{{burger.kCal}}</li>
+                    <li v-if="burger.gluten">Gluten</li>
+                    <li v-else>Glutenfri</li>
+                    <li v-if="burger.lactose">Laktos</li>
+                    <li v-else>Laktosfri</li>
+                </ul>
+            </div>
         </div>
-
     </section>
 
     <section id="index_customer__section">
@@ -48,23 +49,15 @@
 
         <div>
             <label for="firstname">Full name</label>
-            <input type="text" placeholder="First- and last name">
+            <input id="form_name" type="text" placeholder="First- and last name">
         </div>
         <div>
             <label for="firstname">E-mail</label>
-            <input type="text" placeholder="E-mail address">
-        </div>
-        <div>
-            <label for="firstname">Street</label>
-            <input type="text" placeholder="Street name">
-        </div>
-        <div>
-            <label for="firstname">House</label>
-            <input type="text" placeholder="House number">
+            <input id="form_email" type="text" placeholder="E-mail address">
         </div>
 
         <label for="payment">Payment options</label>
-        <select id="payment" name="options">
+        <select id="form_payment" name="options">
             <option>Credit card</option>
             <option>Debit card</option>
             <option>Faktura</option>
@@ -77,12 +70,18 @@
         <label for="male">Male</label><br>
         <input type="radio" id="female" name="gender" value="female">
         <label for="female">Female</label><br>
-        <input type="radio" id="other" name="gender" value="other">
+        <input type="radio" id="other" name="gender" value="other" checked="checked">
         <label for="other">Other</label>
 
 
-        <div>
-            <input type="submit" value="Send">
+
+        <!-- <button type="submit" value="Send" id="submit_button">Send</button> -->
+        <div id="orderDescription">
+            <button v-on:click="submitOrder()">Order</button>
+
+            <p v-for="info in orderInfo">
+                {{ info }}
+            </p>
         </div>
     </section>
 

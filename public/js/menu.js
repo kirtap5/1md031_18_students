@@ -1,8 +1,8 @@
 var food = [{
         "name": "Hamburgare",
         "kCal": 850,
-        "lactose": true,
-        "gluten": false,
+        "lactose": false,
+        "gluten": true,
         "img": "https://jollibeeusa.com/wp-content/uploads/2019/03/yum-1.png"
     },
     {

@@ -1,18 +1,20 @@
-// function ItemData() {
-//     data: {
-//         name: 'Burger 1';
-//         Ingredients: ['Bread', 'Biff', 'Gluten'];
-//         kCal: 500;
-//     }
-//     return data;
-// }
+var vm = new Vue({
+    el: "#wrapper",
+    data: {
+        burgers: food,
+    },
+});
 
-// var MenuItem = new Vue({
-//     data: ItemData(),
-//     name: data.name,
-//     ingretients: data.ingretients,
-//     kCal: data.kCal,
-// })
-
-// const x = 23;
-// console.log(x);
+var vm = new Vue({
+    el: "#orderDescription",
+    data: {
+        burgers: food,
+        orderInfo: []
+    },
+    methods: {
+        submitOrder: function () {
+            this.orderInfo = getOrderData()
+            console.log(this.orderInfo);
+        }
+    },
+});

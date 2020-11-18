@@ -1,3 +1,21 @@
+//      Create menu JS:
+// MenuItems(food);
+
+//      Click Event JS:
+// var submitButton = document.getElementById('submit_button');
+// submitButton.onclick = getOrderData;
+// submitButton.addEventListener("click", getOrderData);
+
+
+function getOrderData(){
+  return [
+     document.getElementById('form_name').value,
+     document.getElementById('form_email').value,
+     document.getElementById('form_payment').value,
+     document.querySelector('input[name="gender"]:checked').value,
+  ]
+}
+
 function MenuItems(food) {
     for (item in food){
         createMenuCard(food[item]);
@@ -29,5 +47,4 @@ function createMenuCard(item) {
     liTwo.innerHTML = item.lactose ? "Laktos" : "Laktosfri";
     liThree.innerHTML = item.gluten ? "Gluten" : "Glutenfri";
     }
-    
-MenuItems(food);
+
