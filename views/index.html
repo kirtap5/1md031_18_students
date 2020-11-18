@@ -4,8 +4,14 @@
 <head>
     <title>Page title shown in window title</title>
     <meta charset="utf-8" />
+    <!-- Stylesheets  -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Script files -->
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="js/js_script.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
 </head>
 
 <body>
@@ -20,54 +26,19 @@
 
         <h2>Select burger</h2>
         <p>This is where you execute burger selection</p>
+        <div id="wrapper">
+            <div v-for="burger in burgers" class="box">
+                <h1>{{ burger.name }}</h1>
+                <img v-bind:src="burger.img" alt="Image not found">
+                <input type="checkbox" id="other" name="burgerCheckbox" v-bind:value="burger.name">
+                <label for="other">Select this item</label>
 
-        <div class="wrapper">
-            <div class="box">
-                <h5>Burger 1</h5>
-            </div>
-
-            <div class="box">
-                <h5>Burger 2</h5>
-            </div>
-
-            <div class="box">
-                <h5>Burger 3</h5>
-            </div>
-
-            <div class="box">
-                <img src="https://jollibeeusa.com/wp-content/uploads/2019/03/yum-1.png" alt="Img not found"
-                    title="Another in-line element" width="100" />
-</div>
-
-<div class="box">
-    <img src="https://pngimage.net/wp-content/uploads/2018/05/burger-patty-png-2.png" alt="Img not found"
-        title="Another in-line element" width="100" />
-</div>
-
-<div class="box">
-    <img src="https://www.pngarts.com/files/3/KFC-Burger-Transparent.png" alt="Img not found"
-    title="Another in-line element" width="100" />
-</div>
-
-            <div class="box">        
                 <ul>
-                    <li>Bröd</li>
-                    <li>Biff</li>
-                    <li class="text-bold">Gluten</li>
-                </ul>
-            </div>
-            <div class="box">        
-                <ul>
-                    <li>Biff</li>
-                    <li>Trace of meat</li>
-                    <li class="text-bold">Lactose</li>
-                </ul>
-            </div>
-            <div class="box">        
-                <ul>
-                    <li>Grönsaker</li>
-                    <li>Chicken</li>
-                    <li class="text-bold">Gluten</li>
+                    <li>{{burger.kCal}}</li>
+                    <li v-if="burger.gluten">Gluten</li>
+                    <li v-else>Glutenfri</li>
+                    <li v-if="burger.lactose">Laktos</li>
+                    <li v-else>Laktosfri</li>
                 </ul>
             </div>
         </div>
@@ -81,23 +52,15 @@
 
         <div>
             <label for="firstname">Full name</label>
-            <input type="text" placeholder="First- and last name">
+            <input id="form_name" type="text" placeholder="First- and last name">
         </div>
         <div>
             <label for="firstname">E-mail</label>
-            <input type="text" placeholder="E-mail address">
-        </div>
-        <div>
-            <label for="firstname">Street</label>
-            <input type="text" placeholder="Street name">
-        </div>
-        <div>
-            <label for="firstname">House</label>
-            <input type="text" placeholder="House number">
+            <input id="form_email" type="text" placeholder="E-mail address">
         </div>
 
         <label for="payment">Payment options</label>
-        <select id="payment" name="options">
+        <select id="form_payment" name="options">
             <option>Credit card</option>
             <option>Debit card</option>
             <option>Faktura</option>
@@ -114,8 +77,14 @@
         <label for="other">Other</label>
 
 
-        <div>
-            <input type="submit" value="Send">
+
+        <!-- <button type="submit" value="Send" id="submit_button">Send</button> -->
+        <div id="orderDescription">
+            <button v-on:click="submitOrder()">Order</button>
+
+            <p v-for="info in orderInfo">
+                {{ info }}
+            </p>
         </div>
     </section>
 
