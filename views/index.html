@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Page title shown in window title</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page title shown in window title</title>
     <!-- Stylesheets  -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/deli-very.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
     <!-- Script files -->
     <script type="text/javascript" src="js/menu.js"></script>
-    <script src="https://vuejs.org/js/vue.js"></script>
+
     <script src="js/js_script.js" defer></script>
     <script src="js/vue_script.js" defer></script>
+
+    <script src="https://vuejs.org/js/vue.js"></script>
+
+    <script src="/vue/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/deli-very.js" defer></script>
+
+
 </head>
 
 <body>
@@ -67,6 +78,18 @@
             <option>Kontant</option>
         </select>
 
+        <h1> Click in the map! </h1>
+        <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+        <div class="view-box">
+          <div id="dots" v-on:click="addOrder">
+              <div 
+                v-for="(order, key) in orders"
+                v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                {{key}}
+              </div>
+          </div>
+        </div>
+
         <label for="gender">Gender</label>
         <p>Please select your gender:</p>
         <input type="radio" id="male" name="gender" value="male">
@@ -81,6 +104,8 @@
         <!-- <button type="submit" value="Send" id="submit_button">Send</button> -->
         <div id="orderDescription">
             <button v-on:click="submitOrder()">Order</button>
+
+
 
             <p v-for="info in orderInfo">
                 {{ info }}

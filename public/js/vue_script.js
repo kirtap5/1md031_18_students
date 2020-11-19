@@ -1,11 +1,12 @@
-var vm = new Vue({
+
+var menuInstance = new Vue({
     el: "#wrapper",
     data: {
         burgers: food,
     },
 });
 
-var vm = new Vue({
+var orderInstace = new Vue({
     el: "#orderDescription",
     data: {
         burgers: food,
