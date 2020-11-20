@@ -19,108 +19,102 @@
     <script src="https://vuejs.org/js/vue.js"></script>
 
     <script src="/vue/vue.js" defer></script>
-    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/deli-very.js" defer></script>
 
 
 </head>
 
 <body>
-    <main id="landing_section">
-        <h1>Welcome to BurgerOnline</h1>
-        <img class="index_banner__image"
-            src="https://metromidsayap-water.gov.ph/wp-content/uploads/2016/11/Header-Background.jpg" alt="">
-    </main>
+    <main id="page">
+        <div id="landing_section">
 
-    <section id="index_burger__section">
-        <!-- Content for selecting burger -->
+            <h1>Welcome to BurgerOnline</h1>
+            <img class="index_banner__image"
+                src="https://metromidsayap-water.gov.ph/wp-content/uploads/2016/11/Header-Background.jpg" alt="">
+        </div>
 
-        <h2>Select burger</h2>
-        <p>This is where you execute burger selection</p>
-        <div id="wrapper">
-            <div v-for="burger in burgers" class="box">
-                <h1>{{ burger.name }}</h1>
-                <img v-bind:src="burger.img" alt="Image not found">
-                <input type="checkbox" id="other" name="burgerCheckbox" v-bind:value="burger.name">
-                <label for="other">Select this item</label>
+        <section id="index_burger__section">
+            <!-- Content for selecting burger -->
 
-                <ul>
-                    <li>{{burger.kCal}}</li>
-                    <li v-if="burger.gluten">Gluten</li>
-                    <li v-else>Glutenfri</li>
-                    <li v-if="burger.lactose">Laktos</li>
-                    <li v-else>Laktosfri</li>
-                </ul>
+            <h2>Select burger</h2>
+            <p>This is where you execute burger selection</p>
+            <div id="wrapper">
+                <div v-for="burger in burgers" class="box">
+                    <h1>{{ burger.name }}</h1>
+                    <img v-bind:src="burger.img" alt="Image not found">
+                    <input type="checkbox" id="other" name="burgerCheckbox" v-bind:value="burger.name">
+                    <label for="other">Select this item</label>
+
+                    <ul>
+                        <li>{{burger.kCal}}</li>
+                        <li v-if="burger.gluten">Gluten</li>
+                        <li v-else>Glutenfri</li>
+                        <li v-if="burger.lactose">Laktos</li>
+                        <li v-else>Laktosfri</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="index_customer__section">
-        <!-- Content for entering customer info -->
-        <h2>Customer infromation</h2>
-        <p>this is where you provide necessary information</p>
-        <h3>Delivery information:</h3>
+        <section id="index_customer__section">
+            <!-- Content for entering customer info -->
+            <h2>Customer infromation</h2>
+            <p>this is where you provide necessary information</p>
+            <h3>Delivery information:</h3>
 
-        <div>
-            <label for="firstname">Full name</label>
-            <input id="form_name" type="text" placeholder="First- and last name">
-        </div>
-        <div>
-            <label for="firstname">E-mail</label>
-            <input id="form_email" type="text" placeholder="E-mail address">
-        </div>
+            <div>
+                <label for="firstname">Full name</label>
+                <input id="form_name" type="text" placeholder="First- and last name">
+            </div>
+            <div>
+                <label for="firstname">E-mail</label>
+                <input id="form_email" type="text" placeholder="E-mail address">
+            </div>
 
-        <label for="payment">Payment options</label>
-        <select id="form_payment" name="options">
-            <option>Credit card</option>
-            <option>Debit card</option>
-            <option>Faktura</option>
-            <option>Kontant</option>
-        </select>
+            <label for="payment">Payment options</label>
+            <select id="form_payment" name="options">
+                <option>Credit card</option>
+                <option>Debit card</option>
+                <option>Faktura</option>
+                <option>Kontant</option>
+            </select>
 
-        <h1> Click in the map! </h1>
-        <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
-        <div class="view-box">
-          <div id="dots" v-on:click="displayOrder">
-              <div 
+            <h1> Click in the map! </h1>
+            <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+            <div class="view-box">
+                <div id="dots" v-on:click="displayOrder">
+                    <div v-bind:style="{  left: tempTarget.details.x + 'px', top: tempTarget.details.y + 'px'}">
+                        {{tempTarget.key}}
+                    </div>
+                </div>
+            </div>
 
-                v-bind:style="{ left: tempTarget.details.x + 'px', top: tempTarget.details.y + 'px'}">
-                {{key}}
-              </div>
-          </div>
-        </div>
-
-        <label for="gender">Gender</label>
-        <p>Please select your gender:</p>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label>
+            <label for="gender">Gender</label>
+            <p>Please select your gender:</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
 
 
-
-        <!-- <button type="submit" value="Send" id="submit_button">Send</button> -->
-        <div id="orderDescription">
-            <button v-on:click="submitOrder()">Order</button>
-
-
-
-            <p v-for="info in orderInfo">
-                {{ info }}
-            </p>
-        </div>
-    </section>
+            <div id="orderDescription">
+                <button v-on:click="addOrder">Order</button>
+                <h1>Order deltails:</h1>
+                <p v-for="info in orderInfo">
+                    {{ info }}
+                </p>
+            </div>
+        </section>
 
 
-    <footer>
-        <hr>
-        <p>All rights reserved</p>
-    </footer>
+        <footer>
+            <hr>
+            <p>All rights reserved</p>
+        </footer>
+    </main>
 </body>
 
 </html>
-
-
-<!-- v-for="order in orders" -->
